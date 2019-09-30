@@ -1,0 +1,23 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+###
+a1="https://trituenhantao.info/posts"
+# https://tukyonline.com/blog
+#http://www.hubertiming.com/results/2017GPTR10K
+#http://redsvn.net/loat-anh-quy-gia-it-nguoi-biet-ve-viet-nam-nam-1926/
+#https://mariadb.com/kb/en/library/create-table/
+url = "https://trituenhantao.info/quan-ly-phien-ban-database-voi-liquibase/"
+html = urlopen(url)
+soup = BeautifulSoup(html, 'html.parser')
+type(soup)
+title = soup.title
+print(title)
+text = soup.get_text()
+all_h1 = soup.find_all("p")
+for a_h1 in all_h1:
+    print(a_h1)
